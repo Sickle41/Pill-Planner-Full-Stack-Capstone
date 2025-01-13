@@ -47,5 +47,17 @@ public class CapstoneDbContext : IdentityDbContext<IdentityUser>
             LastName = "Strator",
             Address = "101 Main Street",
         });
-    }
+         modelBuilder.Entity<MedicationSchedule>()
+        .HasKey(ms => new { ms.MedicationId, ms.ScheduleId }); // Composite Key
+
+        modelBuilder.Entity<MedicationSchedule>()
+        .HasOne(ms => ms.Medication)
+        .WithMany(m => m.MedicationSchedules)
+        .HasForeignKey(ms => ms.MedicationId);
+
+        modelBuilder.Entity<MedicationSchedule>()
+        .HasOne(ms => ms.Schedule)
+        .WithMany(s => s.MedicationSchedules)
+        .HasForeignKey(ms => ms.ScheduleId);
+        }
 }

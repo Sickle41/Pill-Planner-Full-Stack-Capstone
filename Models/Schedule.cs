@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace YourAppNamespace.Models
+namespace Capstone.Models
 {
     public class Schedule
     {
