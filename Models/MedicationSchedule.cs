@@ -1,13 +1,13 @@
-namespace Capstone.Models
+namespace Capstone.Models;
+public class MedicationSchedule
 {
-    public class MedicationSchedule
-    {
-        // Foreign Key for Medication
-        public int MedicationId { get; set; }
-        public Medication Medication { get; set; } // Navigation Property
+    public int Id { get; set; }
+    public int MedicationId { get; set; }
+    public Medication Medication { get; set; }
+    
+    public int DayOfWeekId { get; set; }
+    public DayOfWeek DayOfWeek { get; set; }
 
-        // Foreign Key for Schedule
-        public int ScheduleId { get; set; }
-        public Schedule Schedule { get; set; } // Navigation Property
-    }
+    public int TimeOfDayId { get; set; }
+    public TimeOfDay TimeOfDay { get; set; }
 }
