@@ -15,17 +15,17 @@ namespace Capstone.Models
         [StringLength(255)]
         public string URLImage { get; set; } // Optional URL for an image of the medication
 
-        [ForeignKey("User")]
-        public int UserId { get; set; } // Foreign Key to associate the medication with a user
-        public User User { get; set; } // Navigation property for EF Core
+        [ForeignKey("UserProfile")]
+        public int UserProfileId { get; set; } // Foreign Key to associate the medication with a user
+        public UserProfile UserProfile { get; set; } // Navigation property for EF Core
 
         [Required]
         [StringLength(500)]
         public string Description { get; set; } // Short description of the medication
 
         [Required]
-        public int ConditionId { get; set; } // Foreign Key to the Condition
-        public Condition Condition { get; set; } // Navigation property for EF Core
+        [StringLength(100)]
+        public string Condition { get; set; } // The condition the medication is used to treat
 
         // Navigation property for MedicationSchedules (many-to-many relationship with Schedule)
         public List<MedicationSchedule> MedicationSchedules { get; set; }
